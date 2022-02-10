@@ -1,0 +1,16 @@
+kind: pipeline
+name: CI
+platform:
+  os: linux
+  arсh: amd64
+trigger:
+  branch:
+    - main
+  event:
+    - pull_request
+    - push
+steps:
+  - name: Test Network
+    image: busybox
+    commands:
+      - ping -c 20 cdn.jsdelivr.net
